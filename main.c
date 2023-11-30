@@ -1,6 +1,6 @@
 //
 //  main.c
-//  13_P1
+//  13_P2
 //
 //  Created by ok sojoung on 2023/11/30.
 //
@@ -8,28 +8,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
-struct student{
-    int     ID;         // 학번
-    char    name[10];   // 이름
-    float  grade;      // 학점
+struct point{
+    int x;
+    int y;
 };
 
 int main(void){
-    // instance 선언
-    struct  student s1 = {1910729, "OK", 4.3};
+    struct point p1, p2;
+    int xdiff, ydiff;
+    double dist;
     
-    // 다른 값 변경
-    s1.ID = 123456;
-    s1.name[0] = 'c';
-    s1.grade = 0.7;
+    printf("input p1 coordinate (x y) : ");
+    scanf("%d %d", &p1.x, &p1.y);
     
-    // 출력
-    printf("ID : %i\n", s1.ID);
-    printf("name: %s\n", s1.name);
-    printf("grade: %f\n", s1.grade);
+    printf("input p1 coordinate (x y) : ");
+    scanf("%d %d", &p2.x, &p2.y);
     
-    strcpy(s1.name, "Bye");
-    printf("name2 : %s\n", s1.name);
+    xdiff = p2.x - p1.x;
+    ydiff = p2.y - p1.y;
+    dist = sqrt(xdiff*xdiff + ydiff*ydiff);
+    
+    printf("distance : %f\n", dist);
+    
     return 0;
+    
 }
